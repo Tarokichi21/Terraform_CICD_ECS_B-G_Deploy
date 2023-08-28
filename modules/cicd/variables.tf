@@ -1,0 +1,16 @@
+variable "project_name" {}
+variable "environment" {}
+variable "account_id" {}
+variable "ecs_cluster_name" {}
+variable "ecs_cluster_arn" {}
+variable "ecs_service_name" {}
+variable "ecs_service_id" {}
+variable "container_name" {}
+variable "ecs_task_definition_family" {}
+variable "ecs_task_execution_role_arn" {}
+variable "ecs_task_role_arn" {}
+variable "alb_tg_blue_name" {}
+variable "alb_tg_green_name" {}
+variable "alb_listner_prod_arn" {}
+variable "alb_listner_test_arn" {}
+variable "cloudwatch_log_group_name" {}

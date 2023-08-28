@@ -1,0 +1,9 @@
+variable "project_name" {}
+variable "environment" {}
+variable "account_id" {}
+variable "region" {}
+variable "container_name" {}
+variable "fargate_cpu" {}
+variable "fargate_memory" {}
+variable "ecr_repo_url" {}
+variable "desired_count" {}
