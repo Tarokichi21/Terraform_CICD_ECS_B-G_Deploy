@@ -1,6 +1,6 @@
 ### CI/CD for Amazon ECS(BlueGreenDeploy)
 
-ECSへの自動B/Gデプロイプラットフォームを構築するコードです
+ECSへの自動B/Gデプロイするプラットフォームを構築するコードです
 
 参考サイト
 
