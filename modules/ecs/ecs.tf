@@ -5,7 +5,7 @@ resource "aws_ecs_cluster" "ecs_cluster" {
 
 #ECS_TaskDefinition
 resource "aws_ecs_task_definition" "ecs_task_definition" {
-  family                   = "fargate-sample"
+  family                   = "fargate"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
   cpu                      = var.fargate_cpu
@@ -28,7 +28,7 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
         "logDriver" : "awslogs",
         "options" : {
           "awslogs-region" : "${var.region}",
-          "awslogs-stream-prefix" : "fargate-sample",
+          "awslogs-stream-prefix" : "fargate",
           "awslogs-group" : "${aws_cloudwatch_log_group.cloudwatch_log_group.name}"
         }
       },
@@ -40,7 +40,7 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
 
 #Service
 resource "aws_ecs_service" "ecs_service" {
-  name                               = "fargate-sample"
+  name                               = "fargate"
   cluster                            = aws_ecs_cluster.ecs_cluster.id
   launch_type                        = "FARGATE"
   task_definition                    = data.aws_ecs_task_definition.task_definition.arn
@@ -58,7 +58,7 @@ resource "aws_ecs_service" "ecs_service" {
     ignore_changes = [task_definition, load_balancer]
   }
   
-  #　Rolling Update用の項目
+  # Rolling Update用の項目
   # deployment_circuit_breaker {
   #   enable   = true
   #   rollback = true
@@ -84,7 +84,7 @@ data "aws_ecs_task_definition" "task_definition" {
 #Security_Group_ECS
 resource "aws_security_group" "ecs_fargate_sg" {
   vpc_id = aws_vpc.vpc.id
-  name   = "${var.project_name}-fargate-samples-sg"
+  name   = "${var.project_name}-fargate-sg"
 
   ingress {
     from_port       = 80

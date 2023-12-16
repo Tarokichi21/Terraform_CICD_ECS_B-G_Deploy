@@ -1,5 +1,5 @@
 locals {
-  project_name = "cicd-ecs"
+  project_name = "ecscicd"
   environment  = "dev"
   region       = "ap-northeast-1"
   account_id   = "xxxxxxxxxxxx"
@@ -13,7 +13,7 @@ provider "aws" {
 terraform {
   backend "s3" {
     profile = "terraform"
-    bucket  = "cicd-ecs0001"
+    bucket  = "ecscicd0001"
     key     = "terraform.tfstate"
     region  = "ap-northeast-1"
   }
@@ -36,7 +36,7 @@ module "cicd" {
   alb_listner_prod_arn          = module.ecs.alb_listner_prod_arn
   alb_listner_test_arn          = module.ecs.alb_listner_test_arn
   cloudwatch_log_group_name      = module.ecs.cloudwatch_log_group_name
-  container_name                = "fargate-sample"
+  container_name                = "fargate"
 
 }
 
@@ -55,7 +55,7 @@ module "ecs" {
   region               = local.region
   fargate_cpu          = 256 // MB
   fargate_memory       = 512 // MB
-  container_name       = "fargate-sample"
+  container_name       = "fargate"
   desired_count        = 2
   ecr_repo_url         = "${module.ecr.ecr_repository_url}:latest"
 }
