@@ -56,7 +56,7 @@ docker push <aws_account_id>.dkr.ecr.<region>.amazonaws.com/ecscicd-dev-ecr-repo
 ```
 
 ### RemoteSSHで接続しているEC2でCodeCommitへのpush
-### AWS CodeCommit の HTTPS Git 認証情報を事前に生成しておく必要があります
+#### ※AWS CodeCommit の HTTPS Git 認証情報を事前に生成しておく必要があります
 ```
 cd sample
 git init
