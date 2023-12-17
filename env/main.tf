@@ -2,7 +2,7 @@ locals {
   project_name = "ecscicd"
   environment  = "dev"
   region       = "ap-northeast-1"
-  account_id   = "410362506341"
+  account_id   = "xxxxxxxxxxxx"
 }
 
 provider "aws" {
