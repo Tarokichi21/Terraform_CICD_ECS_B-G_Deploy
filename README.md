@@ -10,12 +10,14 @@ ECSへの自動B/Gデプロイするプラットフォームを構築するコ�
 
 [③AWS CI/CD for Amazon ECSハンズオン](https://pages.awscloud.com/rs/112-TZM-766/images/AWS_CICD_ECS_Handson.pdf)
 
-#### 事前準備
+## 事前準備
 ### /env/main.tfのaccount_idをご自身のアカウントIDに変更してください
 
+```
 locals{
   account_id   = "xxxxxxx"←この部分
 }
+```
 
  ### .tfstate用s３作成
 ```
