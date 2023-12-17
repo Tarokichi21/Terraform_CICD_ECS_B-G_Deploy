@@ -10,8 +10,14 @@ ECSへの自動B/Gデプロイするプラットフォームを構築するコ�
 
 [③AWS CI/CD for Amazon ECSハンズオン](https://pages.awscloud.com/rs/112-TZM-766/images/AWS_CICD_ECS_Handson.pdf)
 
+#### 事前準備
+### /env/main.tfのaccount_idをご自身のアカウントIDに変更してください
 
-### .tfstate用s３作成
+locals{
+  account_id   = "xxxxxxx"←この部分
+}
+
+ ### .tfstate用s３作成
 ```
 aws s3 mb s3://ecscicd0001
 ```
@@ -39,7 +45,7 @@ aws configure
 
 ### RemoteSSHで接続しているEC2でDockerImageをECRにPushする手順
 ```
-cd ../../
+cd sample
 docker build -t ecscicd-dev-ecr-repository .
 docker images
 aws ecr get-login-password | docker login --username AWS --password-stdin https://<aws_account_id>.dkr.ecr.<region>.amazonaws.com
